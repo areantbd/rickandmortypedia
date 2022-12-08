@@ -10,3 +10,7 @@ body {
 .pad-bot {
     padding-bottom: 50%;
 }
+
+.locations-list {
+    list-style: none;
+}

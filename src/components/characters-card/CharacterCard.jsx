@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CharacterCard({name, status, species, gender, image, type}) {
+function CharacterCard({name, status, species, gender, image, type, id}) {
   return (
     <div className='container'>
         {/* <h2>{name}</h2>
@@ -15,15 +15,15 @@ function CharacterCard({name, status, species, gender, image, type}) {
         </div>
         <hr/> */}
 
-        <div className="card mb-3">
+        <div className="card mb-3 border-0">
           <div className="row g-0">
             <div className="col-6">
               <img src={`${image}`} className="img-fluid rounded-start" alt={name} />
             </div>
             <div className="col-6 my-auto">
               <div className="card-body">
-                <h2 className="card-title mb-5">{name}</h2>
-                <h3 className="card-text">Specie: {species}</h3>
+                <h4 className="card-title mb-5">{name}</h4>
+                <h5 className="card-text">Specie: {species}</h5>
               </div>
             </div>
           </div>
