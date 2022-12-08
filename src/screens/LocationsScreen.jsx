@@ -32,7 +32,7 @@ function LocationsScreen() {
       setPage(actualPage - 1)
     }
   return (
-    <div className='container pad-bot'>
+    <div className='container pad-bot screen'>
     <h1 className='text-center my-5 text-light'>Rick & Morty Characters</h1>
     <div className='d-flex justify-content-between border px-3 py-2 text-light'>
       <h3>Total Locations: {locations?.data?.info?.count}</h3>
@@ -43,7 +43,7 @@ function LocationsScreen() {
       <h3 className='text-light'>{actualPage}</h3>
       {actualPage < locations?.data?.info?.pages && <button onClick={handleUp} className="btn btn-sm btn-secondary">Page up</button>}
     </div>
-    <ul className='locations-list'>
+    <ul className='locations-list ps-0'>
     {locations?.data?.results?.map((location) => (
       <li className='text-light my-2 border text-center text-decoration-none'>{location.name}</li>
     ))}
