@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import img from "../assets/images/2348073.jpg"
 
 function HomeScreen() {
   return (
