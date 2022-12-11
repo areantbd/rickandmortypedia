@@ -27,10 +27,13 @@ body {
     background-color: #B7E4F9FF;
 }
 
-.homebg {
+.homepg {
     height: 550px;
-    background-image: url(./assets/images/pedia.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+
+.homebg {
+    max-height: 100%;
+    display: flex;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 20px #B7E4F9FF);
 }

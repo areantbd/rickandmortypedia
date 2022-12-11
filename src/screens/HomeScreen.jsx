@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import image from "../assets/images/pedia.png"
 
 function HomeScreen() {
   return (
@@ -9,7 +10,9 @@ function HomeScreen() {
         <Link to="/locations"><button className='btn btn-info btn-sm'>Locations</button></Link>
         <Link to="/episodes"><button className='btn btn-info btn-sm'>Episodes</button></Link>
     </div>
-    <div className='homebg mt-3'></div>
+    <div className='homepg mt-4'>
+      <img src={image} alt="home" className='homebg rounded' filter/>
+    </div>
     </>
   )
 }
