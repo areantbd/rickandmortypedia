@@ -1,13 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import img from "../assets/images/2348073.jpg"
 
 function HomeScreen() {
   return (
-    <div className='home-page container mt-5 '>
-        <Link to="/characters"><button>Characters</button></Link>
-        <Link to="/locations"><button>Locations</button></Link>
-        <Link to="/episodes"><button>Episodes</button></Link>
+    <>
+    <div className='home-page container mt-3 d-flex justify-content-evenly'>
+        <Link to="/characters"><button className='btn btn-info btn-sm'>Characters</button></Link>
+        <Link to="/locations"><button className='btn btn-info btn-sm'>Locations</button></Link>
+        <Link to="/episodes"><button className='btn btn-info btn-sm'>Episodes</button></Link>
     </div>
+    <div className='homebg mt-3'></div>
+    </>
   )
 }
 

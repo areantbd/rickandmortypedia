@@ -22,3 +22,15 @@ body {
 .home-page {
     background-image: none;
 }
+
+.chars-card-body {
+    background-color: #B7E4F9FF;
+}
+
+.homebg {
+    height: 550px;
+    background-image: url(./assets/images/pedia.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

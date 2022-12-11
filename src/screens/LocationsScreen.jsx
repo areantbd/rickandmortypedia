@@ -33,15 +33,15 @@ function LocationsScreen() {
     }
   return (
     <div className='container pad-bot screen'>
-    <h1 className='text-center my-5 text-light'>Rick & Morty Characters</h1>
+    <h3 className='text-center my-3 text-light'>Rick & Morty Characters</h3>
     <div className='d-flex justify-content-between border px-3 py-2 text-light'>
-      <h3>Total Locations: {locations?.data?.info?.count}</h3>
-      <h3>Total pages: {locations?.data?.info?.pages}</h3>
+      <h6>Total Locations: {locations?.data?.info?.count}</h6>
+      <h6>Total pages: {locations?.data?.info?.pages}</h6>
     </div>
-    <div className='d-flex justify-content-center gap-5 my-5'>
-      {actualPage > 1 && <button onClick={handleDown} className="btn btn-sm btn-secondary">Page down</button>}
+    <div className='d-flex justify-content-center gap-5 my-3'>
+      {actualPage > 1 && <button onClick={handleDown} className="btn btn-sm btn-secondary bg-gradient">Page down</button>}
       <h3 className='text-light'>{actualPage}</h3>
-      {actualPage < locations?.data?.info?.pages && <button onClick={handleUp} className="btn btn-sm btn-secondary">Page up</button>}
+      {actualPage < locations?.data?.info?.pages && <button onClick={handleUp} className="btn btn-sm btn-secondary bg-gradient">Page up</button>}
     </div>
     <ul className='locations-list ps-0'>
     {locations?.data?.results?.map((location) => (
@@ -49,9 +49,9 @@ function LocationsScreen() {
     ))}
     </ul>
     <div className='d-flex justify-content-center gap-5 my-5'>
-      {actualPage > 1 && <button onClick={handleDown} className="btn btn-sm btn-secondary">Page down</button>}
+      {actualPage > 1 && <button onClick={handleDown} className="btn btn-sm btn-secondary bg-gradient">Page down</button>}
       <h3 className='text-light'>{actualPage}</h3>
-      {actualPage < locations?.data?.info?.pages && <button onClick={handleUp} className="btn btn-sm btn-secondary">Page up</button>}
+      {actualPage < locations?.data?.info?.pages && <button onClick={handleUp} className="btn btn-sm btn-secondary bg-gradient">Page up</button>}
     </div>
     
     </div>
