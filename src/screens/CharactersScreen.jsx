@@ -5,15 +5,17 @@ import CharacterCard from "../components/characters-card/CharacterCard";
 function CharactersScreen() {
   const [chars, setChars] = useState(null);
   const [actualPage, setPage] = useState(1);
+  const [search, setSearch] = useState(null)
 
   useEffect(() => {
     getCharacters({
       page: actualPage,
       status: "",
+      name: search || ""
     })
       .then((data) => setChars(data))
       .catch((error) => console.error(error));
-  }, [actualPage]);
+  }, [actualPage, search]);
 
   if (actualPage < 1) {
     setPage(1);
@@ -37,6 +39,14 @@ function CharactersScreen() {
         <h6>Total characters: {chars?.data?.info?.count}</h6>
         <h6>Total pages: {chars?.data?.info?.pages}</h6>
       </div>
+      <form className="mt-2 text-center">
+        <input 
+          type="text" 
+          value={search} 
+          onChange={(ev) => setSearch(ev.target.value)} 
+          placeholder="Search character"
+          ></input>
+      </form>
       <div className="d-flex justify-content-center gap-5 my-3">
         {actualPage > 1 && (
           <button
