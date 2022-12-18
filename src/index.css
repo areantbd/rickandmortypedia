@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "get_schwifty";
+    src: local("get_schwifty"),
+      url("./assets/fonts/get_schwifty.ttf") format("truetype");
+		font-weight: bold;
+}
+
+
 body {
     background-color: #000000;
 }
@@ -36,4 +44,8 @@ body {
     display: flex;
     margin: 0 auto;
     filter: drop-shadow(0 0 20px #B7E4F9FF);
+}
+
+.font-face {
+	font-family: "get_schwifty";
 }

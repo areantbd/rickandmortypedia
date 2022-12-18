@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function CharacterCard({name, status, species, gender, image, type, id}) {
   return (
@@ -15,19 +16,21 @@ function CharacterCard({name, status, species, gender, image, type, id}) {
         </div>
         <hr/> */}
 
-        <div className="card mb-3 border-0 chars-card-body">
+        <Link to={`/character/${id}`} className=" text-decoration-none text-dark">
+        <div className="card mb-3 border-0 chars-card-body ">
           <div className="row g-0">
             <div className="col-6">
               <img src={`${image}`} className="img-fluid rounded-start" alt={name} />
             </div>
             <div className="col-6 my-auto">
-              <div className="card-body ms-2">
+              <div className="card-body ms-2 ">
                 <h5 className="card-title mb-3"><b>{name}</b></h5>
                 <h6 className="card-text">{species}</h6>
               </div>
             </div>
           </div>
         </div>
+        </Link>
     </div>
   )
 }
