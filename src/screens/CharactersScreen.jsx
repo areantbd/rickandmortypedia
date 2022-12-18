@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCharacters } from "rickmortyapi";
 import CharacterCard from "../components/characters-card/CharacterCard";
+import loading from "../assets/images/giphy.gif";
 
 function CharactersScreen() {
   const [chars, setChars] = useState(null);
@@ -32,7 +33,7 @@ function CharactersScreen() {
   function handleDown() {
     setPage(actualPage - 1);
   }
-  return (
+  return chars ? (
     <div className="container pad-bot screen">
       <h3 className="text-center my-3 text-light">Rick & Morty Characters</h3>
       <div className="d-flex justify-content-between border px-3 py-2 text-light">
@@ -91,7 +92,11 @@ function CharactersScreen() {
         )}
       </div>
     </div>
-  );
+  ) : (
+    <div>
+      <img src={loading} alt="loading"></img>
+    </div>
+  )
 }
 
 export default CharactersScreen;
