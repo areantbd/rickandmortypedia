@@ -14,11 +14,17 @@ function CharactersDetailScreen() {
 					.catch((error) => console.error(error))
     }, [characterId])
 		console.log(`${characterId}`)
-		console.log(char)
+		console.log(char?.data)
   return char ? (
     <div>
       <Link to="/characters"><button className='btn btn-info btn-sm font-face mt-5 ms-3'>Characters</button></Link>
 			<h3 className='text-light'>{char?.data.name}</h3>
+			{char?.data?.gender === "Male" && char?.data?.status === "Alive" && <h3>👨</h3>}
+			{char?.data?.gender === "Female" && char?.data?.status === "Alive" && <h3>👩</h3>}
+			{char?.data?.status === "Death" && <h3>💀</h3>}
+			{char?.data?.gender === "Male" && char?.data?.status === "unknown" && <h3>🤷‍♂️</h3>}
+			{char?.data?.gender === "Female" && char?.data?.status === "unknown" && <h3>🤷‍♀️</h3>}
+
     </div>
   ) : (
 		<>
