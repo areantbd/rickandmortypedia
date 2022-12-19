@@ -32,7 +32,7 @@ body {
 }
 
 .chars-card-body {
-    background-color: #B7E4F9FF;
+    background-color: #b7e4f9ec;
 }
 
 .homepg {
@@ -48,4 +48,11 @@ body {
 
 .font-face {
 	font-family: "get_schwifty";
+}
+
+.status {
+    display: inline;
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }

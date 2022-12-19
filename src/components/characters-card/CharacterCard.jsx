@@ -18,6 +18,14 @@ function CharacterCard({name, status, species, gender, image, type, id}) {
 
         <Link to={`/character/${id}`} className=" text-decoration-none text-dark">
         <div className="card mb-3 border-0 chars-card-body ">
+              {gender === "Male" && status === "Alive" &&  species !== "Animal" && <div className='status'>👨</div>}
+              {gender === "Female" && status === "Alive" &&  species !== "Animal" && <div className='status'>👩</div>}
+              {status === "Dead" && <div className='status'>💀</div>}
+              {gender === "Male" && status === "unknown" &&  species !== "Animal" && <div className='status'>🤷‍♂️</div>}
+              {gender === "Female" && status === "unknown" &&  species !== "Animal" && <div className='status'>🤷‍♀️</div>}
+              {gender === "unknown" &&  status !== "Dead" && <div className='status'>👽</div>}
+              {gender === "Genderless" &&  status !== "Dead" && <div className='status'>👽</div>}
+			        {species === "Animal" && status !== "Dead" && <div className='status'>🐶</div>}
           <div className="row g-0">
             <div className="col-6">
               <img src={`${image}`} className="img-fluid rounded-start" alt={name} />

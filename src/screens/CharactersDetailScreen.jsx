@@ -19,11 +19,14 @@ function CharactersDetailScreen() {
     <div>
       <Link to="/characters"><button className='btn btn-info btn-sm font-face mt-5 ms-3'>Characters</button></Link>
 			<h3 className='text-light'>{char?.data.name}</h3>
-			{char?.data?.gender === "Male" && char?.data?.status === "Alive" && <h3>👨</h3>}
-			{char?.data?.gender === "Female" && char?.data?.status === "Alive" && <h3>👩</h3>}
-			{char?.data?.status === "Death" && <h3>💀</h3>}
-			{char?.data?.gender === "Male" && char?.data?.status === "unknown" && <h3>🤷‍♂️</h3>}
-			{char?.data?.gender === "Female" && char?.data?.status === "unknown" && <h3>🤷‍♀️</h3>}
+			{char?.data?.gender === "Male" && char?.data?.status === "Alive" && char?.data?.species !== "Animal" && <h3>👨</h3>}
+			{char?.data?.gender === "Female" && char?.data?.status === "Alive" && char?.data?.species !== "Animal" && <h3>👩</h3>}
+			{char?.data?.status === "Dead" && <h3>💀</h3>}
+			{char?.data?.gender === "Male" && char?.data?.status === "unknown" && char?.data?.species !== "Animal" && <h3>🤷‍♂️</h3>}
+			{char?.data?.gender === "Female" && char?.data?.status === "unknown" && char?.data?.species !== "Animal" && <h3>🤷‍♀️</h3>}
+			{char?.data?.gender === "unknown" && <h3>👽</h3>}
+			{char?.data?.gender === "Genderless" && <h3>👽</h3>}
+			{char?.data?.species === "Animal" && <h3>🐶</h3>}
 
     </div>
   ) : (
