@@ -4,7 +4,7 @@ import CharacterCard from "../components/characters-card/CharacterCard";
 import loading from "../assets/images/giphy.gif";
 
 function CharactersScreen() {  
-  const actPage = localStorage.getItem("page")
+  let actPage = Number(localStorage.getItem("page"))
   const [chars, setChars] = useState(null);
   const [actualPage, setPage] = useState(actPage);
   const [search, setSearch] = useState("")
@@ -12,7 +12,7 @@ function CharactersScreen() {
 
   useEffect(() => {
     getCharacters({
-      page: actPage,
+      page: actualPage,
       status: "",
       name: search || ""
     })
@@ -20,7 +20,7 @@ function CharactersScreen() {
         setChars(data)
       })
       .catch((error) => console.error(error));
-  }, [actPage, search]);
+  }, [actualPage, search]);
 
   if (actualPage < 1) {
     setPage(1);
@@ -31,10 +31,10 @@ function CharactersScreen() {
   }
 
   function handleUp() {
-    setPage(+actualPage + 1);
+    setPage(actualPage + 1);
   }
   function handleDown() {
-    setPage(+actualPage - 1);
+    setPage(actualPage - 1);
   }
 
   console.log(chars)
