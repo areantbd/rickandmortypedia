@@ -3,20 +3,24 @@ import { getCharacters } from "rickmortyapi";
 import CharacterCard from "../components/characters-card/CharacterCard";
 import loading from "../assets/images/giphy.gif";
 
-function CharactersScreen() {
+function CharactersScreen() {  
+  const actPage = localStorage.getItem("page")
   const [chars, setChars] = useState(null);
-  const [actualPage, setPage] = useState(1);
+  const [actualPage, setPage] = useState(actPage);
   const [search, setSearch] = useState("")
+  localStorage.setItem("page", actualPage)
 
   useEffect(() => {
     getCharacters({
-      page: actualPage,
+      page: actPage,
       status: "",
       name: search || ""
     })
-      .then((data) => setChars(data))
+      .then((data) => {
+        setChars(data)
+      })
       .catch((error) => console.error(error));
-  }, [actualPage, search]);
+  }, [actPage, search]);
 
   if (actualPage < 1) {
     setPage(1);
@@ -27,10 +31,10 @@ function CharactersScreen() {
   }
 
   function handleUp() {
-    setPage(actualPage + 1);
+    setPage(+actualPage + 1);
   }
   function handleDown() {
-    setPage(actualPage - 1);
+    setPage(+actualPage - 1);
   }
 
   console.log(chars)
