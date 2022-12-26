@@ -48,7 +48,10 @@ function CharactersScreen() {
         <input
           type="text" 
           value={search} 
-          onChange={(ev) => setSearch(ev.target.value)} 
+          onChange={(ev) => {
+            setSearch(ev.target.value)
+            setPage(1)
+            }} 
           placeholder="         Search character"
           ></input>
       </form>
