@@ -37,7 +37,6 @@ function CharactersScreen() {
     setPage(actualPage - 1);
   }
 
-  console.log(chars)
   return chars ? (
     <div className="container pad-bot screen">
       <h3 className="text-center my-3 text-light font-face">Characters</h3>

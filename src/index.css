@@ -49,7 +49,9 @@ body {
 .font-face {
 	font-family: "get_schwifty";
 }
-
+.relative{
+    position: relative;
+}
 .status {
     display: inline;
     position: absolute;
