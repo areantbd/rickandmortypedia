@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { getCharacters } from "rickmortyapi";
-import CharacterCard from "../components/characters-card/CharacterCard";
-import loading from "../assets/images/giphy.gif";
+import CharacterCard from "../../components/characters-card/CharacterCard";
+import loading from "../../assets/images/giphy.gif";
 
-function CharactersScreen() {  
-  let actPage = Number(localStorage.getItem("page"))
+function CharactersScreen() {
+  let actPage = Number(localStorage.getItem("page"));
   const [chars, setChars] = useState(null);
   const [actualPage, setPage] = useState(actPage);
-  const [search, setSearch] = useState("")
-  localStorage.setItem("page", actualPage)
+  const [search, setSearch] = useState("");
+  localStorage.setItem("page", actualPage);
 
   useEffect(() => {
     getCharacters({
       page: actualPage,
       status: "",
-      name: search || ""
+      name: search || "",
     })
       .then((data) => {
-        setChars(data)
+        setChars(data);
       })
       .catch((error) => console.error(error));
   }, [actualPage, search]);
@@ -46,14 +46,14 @@ function CharactersScreen() {
       </div>
       <form className="mt-2 text-center font-face">
         <input
-          type="text" 
-          value={search} 
+          type="text"
+          value={search}
           onChange={(ev) => {
-            setSearch(ev.target.value)
-            setPage(1)
-            }} 
+            setSearch(ev.target.value);
+            setPage(1);
+          }}
           placeholder="         Search character"
-          ></input>
+        ></input>
       </form>
       <div className="d-flex justify-content-center gap-5 my-3">
         {actualPage > 1 && (
@@ -101,11 +101,11 @@ function CharactersScreen() {
     </div>
   ) : (
     <>
-      <div className='d-flex justify-content-center mt-5 pt-5'>
+      <div className="d-flex justify-content-center mt-5 pt-5">
         <img src={loading} alt="loading"></img>
       </div>
-		</>
-  )
+    </>
+  );
 }
 
 export default CharactersScreen;

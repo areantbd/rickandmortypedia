@@ -8,6 +8,7 @@
 
 body {
     background-color: #000000;
+    font-size: 25px;
 }
 
 .screen {
@@ -43,7 +44,7 @@ body {
     max-height: 100%;
     display: flex;
     margin: 0 auto;
-    filter: drop-shadow(0 0 20px #B7E4F9FF);
+    filter: drop-shadow(0 0 20px rgb(108, 223, 108));
 }
 
 .font-face {
@@ -58,4 +59,8 @@ body {
     max-width: 50%;
     right: 0px;
     top: 0px;
+}
+.menu-btn {
+    background-color: rgb(8, 194, 194);
+    filter: drop-shadow(0 0 12px rgb(108, 223, 108));
 }
