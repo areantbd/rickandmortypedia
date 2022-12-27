@@ -36,6 +36,12 @@ function CharactersScreen() {
   function handleDown() {
     setPage(actualPage - 1);
   }
+  function handleFirst() {
+    setPage(1);
+  }
+  function handleLast() {
+    setPage(chars.data.info.pages);
+  }
 
   return chars ? (
     <div className="container pad-bot screen">
@@ -52,26 +58,41 @@ function CharactersScreen() {
             setSearch(ev.target.value);
             setPage(1);
           }}
-          placeholder="         Search character"
+          placeholder="Search character"
         ></input>
       </form>
       <div className="d-flex justify-content-center gap-5 my-3">
         {actualPage > 1 && (
-          <button
-            onClick={handleDown}
-            className="btn btn-sm btn-secondary bg-gradient font-face"
-          >
-            Page down
-          </button>
+          <div className="d-flex gap-1">
+            <button
+              onClick={handleFirst}
+              className="btn btn-sm btn-secondary bg-gradient font-face">
+              First
+              </button>
+            <button
+              onClick={handleDown}
+              className="btn btn-sm btn-secondary bg-gradient font-face"
+            >
+              Page down
+            </button>
+          </div>
         )}
         <h3 className="text-light font-face">{actualPage}</h3>
         {actualPage < chars?.data?.info?.pages && (
-          <button
-            onClick={handleUp}
-            className="btn btn-sm btn-secondary bg-gradient font-face"
-          >
-            Page up
-          </button>
+          <div className="d-flex gap-1">
+            <button
+              onClick={handleUp}
+              className="btn btn-sm btn-secondary bg-gradient font-face"
+            >
+              Page up
+            </button>
+            <button
+              onClick={handleLast}
+              className="btn btn-sm btn-secondary bg-gradient font-face"
+            >
+              Last
+            </button>
+          </div>
         )}
       </div>
       <div className="row">
@@ -81,21 +102,36 @@ function CharactersScreen() {
       </div>
       <div className="d-flex justify-content-center gap-5 my-5">
         {actualPage > 1 && (
-          <button
-            onClick={handleDown}
-            className="btn btn-sm btn-secondary bg-gradient font-face"
-          >
-            Page down
-          </button>
+          <div className="d-flex gap-1">
+            <button
+              onClick={handleFirst}
+              className="btn btn-sm btn-secondary bg-gradient font-face">
+              First
+              </button>
+            <button
+              onClick={handleDown}
+              className="btn btn-sm btn-secondary bg-gradient font-face"
+            >
+              Page down
+            </button>
+          </div>
         )}
         <h3 className="text-light font-face">{actualPage}</h3>
         {actualPage < chars?.data?.info?.pages && (
-          <button
-            onClick={handleUp}
-            className="btn btn-sm btn-secondary bg-gradient font-face"
-          >
-            Page up
-          </button>
+          <div className="d-flex gap-1">
+            <button
+              onClick={handleUp}
+              className="btn btn-sm btn-secondary bg-gradient font-face"
+            >
+              Page up
+            </button>
+            <button
+              onClick={handleLast}
+              className="btn btn-sm btn-secondary bg-gradient font-face"
+            >
+              Last
+            </button>
+          </div>
         )}
       </div>
     </div>

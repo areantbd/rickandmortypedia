@@ -11,6 +11,10 @@ body {
     font-size: 25px;
 }
 
+input{
+    text-align: center;
+}
+
 .screen {
     background-color: black;
     background-image: url(./assets/images/wp1822737.jpg);
