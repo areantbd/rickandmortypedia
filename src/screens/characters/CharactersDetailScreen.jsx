@@ -7,6 +7,7 @@ import loading from "../../assets/images/giphy.gif";
 function CharactersDetailScreen() {
     let { characterId } = useParams()
 		const [char, setChar] = useState(null)
+		const LOCATION_NUM = /[0-9]/
 
     useEffect(() => {
         getCharacter(Number(characterId))
@@ -27,6 +28,9 @@ function CharactersDetailScreen() {
 		if (char?.data.location.name === "unknown") {
 			char.data.location.name = "Unknown"
 		}
+		const locationNumIndex = char?.data.origin.url.search(LOCATION_NUM)
+		const locationNum = char?.data.origin.url.slice(locationNumIndex)
+		console.log(locationNum)
 
   return char ? (
     <div className='container'>
@@ -44,9 +48,9 @@ function CharactersDetailScreen() {
 					{char?.data?.type && <p className='text-secondary mt-2'><b>Type: </b><b className='text-danger'>{char?.data.type}</b></p>}
 					<p className='text-secondary mt-2'><b>Gender: </b><b className='text-danger'>{char?.data.gender}</b></p>
 					{char?.data.origin.name !== "Unknown" ? (
-						<Link to={`/locations/${char?.data.origin.name}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Origin: </b><b className='text-danger'>{char?.data.origin.name}</b></p></Link>
+						<Link to={`/locations/${locationNum}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Origin: </b><b className='text-danger'>{char?.data.origin.name}</b></p></Link>
 						) : (<p className='text-secondary mt-2'><b>Origin: </b><b className='text-danger'>{char?.data.origin.name}</b></p>)}
-					<Link to={`/locations/${char?.data.location.name}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Actual location: </b><b className='text-danger'>{char?.data.location.name}</b></p></Link>
+					<Link to={`/locations/${locationNum}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Actual location: </b><b className='text-danger'>{char?.data.location.name}</b></p></Link>
 				</div>
 			</div>
     </div>

@@ -20,7 +20,7 @@ function App() {
           />
           <Route path="/locations" element={<LocationsScreen />} />
           <Route
-            path="/locations/:locationName"
+            path="/locations/:locationNum"
             element={<LocationDetailScreen />}
           />
         </Routes>
