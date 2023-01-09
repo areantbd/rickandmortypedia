@@ -14,19 +14,33 @@ function LocationDetailScreen() {
     Number(res.slice(charsIndex))
     ))
 
+
+  
+
   useEffect(() => {
+    // addChars()
     getLocation(+locationNum)
       .then((data) => setLocation(data))
       .catch((error) => console.error(error))
 
+  }, [locationNum])
+
+  // const addChars = useCallback(() => {
+  //   getCharacter(charsNums)
+  //     .then((data) => setChars(data))
+  //     .catch((error) => console.error(error))
+  // }, [charsNums])
+
+  function showChars() {
     getCharacter(charsNums)
       .then((data) => setChars(data))
       .catch((error) => console.error(error))
-
-  }, [locationNum ])
+  }
+  
 
   // let test = location?.data.residents.forEach((el)=> console.log(el))
 
+  // console.log(chars)
   console.log(chars)
 
   return location ? (
@@ -34,7 +48,12 @@ function LocationDetailScreen() {
       <h1>Name: {location?.data.name}</h1>
       <h1>Dimension: {location?.data.name}</h1>
       <h1>Type: {location?.data.type}</h1>
-      <div>
+      {!chars ? (
+        <div className='d-flex flex-row-reverse'>
+          <button onClick={showChars} className="btn menu-btn mt-4">Show characters</button>
+        </div>
+      ) : (<></>)}
+      <div className='row mt-4'>
         {chars?.data.map((char) => (
           <CharacterCard {...char} key={char.id} />
           ))}
