@@ -9,7 +9,7 @@ function LocationDetailScreen() {
   const [location, setLocation] = useState(null)
   const [chars, setChars] = useState(null)
   const LOCATION_NUM = /[0-9]/
-  const charsIndex = location?.data.residents[0].search(LOCATION_NUM)
+  const charsIndex = location?.data?.residents[0]?.search(LOCATION_NUM)
   const charsNums = location?.data.residents.map((res) => (
     Number(res.slice(charsIndex))
     ))
@@ -41,7 +41,7 @@ function LocationDetailScreen() {
   // let test = location?.data.residents.forEach((el)=> console.log(el))
 
   // console.log(chars)
-  console.log(chars)
+  console.log(chars?.data.length)
 
   return location ? (
     <div className='text-light container mt-3'>
@@ -53,11 +53,16 @@ function LocationDetailScreen() {
           <button onClick={showChars} className="btn menu-btn mt-4">Show characters</button>
         </div>
       ) : (<></>)}
-      <div className='row mt-4'>
+      {chars?.data.length !== 0 ? (
+        <div className='row mt-4'>
         {chars?.data.map((char) => (
           <CharacterCard {...char} key={char.id} />
           ))}
       </div>
+      ) : (
+        <h1 className='mt-5 pt-5 text-warning'>Nothing to see here</h1>
+      )}
+      
 
     </div>
   ) : (

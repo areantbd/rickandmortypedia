@@ -46,7 +46,7 @@ function LocationsScreen() {
     </div>
     <ul className='locations-list ps-0'>
     {locations?.data?.results?.map((location) => (
-      <Link to={`/locations/${location.name}`} className="text-decoration-none"><li className='text-light my-2 border text-center text-decoration-none' key={location.id}>{location.name}</li></Link>
+      <Link to={`/locations/${location.id}`} className="text-decoration-none"><li className='text-light my-2 border text-center text-decoration-none' key={location.id}>{location.name}</li></Link>
     ))}
     </ul>
     <div className='d-flex justify-content-center gap-5 my-5'>
