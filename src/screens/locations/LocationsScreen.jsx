@@ -32,6 +32,7 @@ function LocationsScreen() {
     function handleDown() {      
       setPage(actualPage - 1)
     }
+    console.log(locations?.data.results)
   return (
     <div className='container pad-bot screen'>
     <h3 className='text-center my-3 text-light'>Rick & Morty Characters</h3>
@@ -46,7 +47,7 @@ function LocationsScreen() {
     </div>
     <ul className='locations-list ps-0'>
     {locations?.data?.results?.map((location) => (
-      <Link to={`/locations/${location.id}`} className="text-decoration-none"><li className='text-light my-2 border text-center text-decoration-none' key={location.id}>{location.name}</li></Link>
+      <Link to={`/locations/${location.id}`} className="text-decoration-none"><li className='my-2 text-center border d-flex justify-content-between' key={location.id}><b className='text-secondary'>Location name: {location.name}</b> <b className='text-danger'>Residents: {location.residents.length}</b></li></Link>
     ))}
     </ul>
     <div className='d-flex justify-content-center gap-5 my-5'>

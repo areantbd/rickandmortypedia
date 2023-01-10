@@ -6,7 +6,10 @@ function CharacterCard({name, status, species, gender, image, type, id}) {
   if (species === "Mythological Creature") {
     species = "Mythologic"
   }
-
+  console.log(name)
+  console.log(status)
+  console.log(species)
+  console.log(id)
   return (
     <div className='container col-12 col-sm-10 col-md-8 col-lg-6'>
         <Link to={`/character/${id}`} className=" text-decoration-none text-dark">

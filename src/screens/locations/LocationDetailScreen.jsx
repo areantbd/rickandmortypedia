@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { getCharacter, getLocation } from 'rickmortyapi'
 import loading from "../../assets/images/giphy.gif";
 import CharacterCard from '../../components/characters-card/CharacterCard';
+import gif from "../../assets/images/nothing to see.gif"
 
 function LocationDetailScreen() {
   let { locationNum } = useParams()
@@ -12,58 +13,53 @@ function LocationDetailScreen() {
   const charsIndex = location?.data?.residents[0]?.search(LOCATION_NUM)
   const charsNums = location?.data.residents.map((res) => (
     Number(res.slice(charsIndex))
-    ))
-
-
-  
+    ))  
 
   useEffect(() => {
-    // addChars()
     getLocation(+locationNum)
       .then((data) => setLocation(data))
       .catch((error) => console.error(error))
 
   }, [locationNum])
 
-  // const addChars = useCallback(() => {
-  //   getCharacter(charsNums)
-  //     .then((data) => setChars(data))
-  //     .catch((error) => console.error(error))
-  // }, [charsNums])
-
   function showChars() {
-    getCharacter(charsNums)
-      .then((data) => setChars(data))
+    if (location?.data.residents.length === 0) {
+      setChars([])
+    } else if (location?.data.residents.length === 1) {
+      getCharacter(charsNums)
+      .then((data) => setChars([data?.data]))
       .catch((error) => console.error(error))
+    } else{
+    getCharacter(charsNums)
+      .then((data) => setChars(data?.data))
+      .catch((error) => console.error(error))
+    }
   }
-  
-
-  // let test = location?.data.residents.forEach((el)=> console.log(el))
-
-  // console.log(chars)
-  console.log(chars?.data.length)
 
   return location ? (
     <div className='text-light container mt-3'>
-      <h1>Name: {location?.data.name}</h1>
-      <h1>Dimension: {location?.data.name}</h1>
-      <h1>Type: {location?.data.type}</h1>
+      <h1 className='text-center text-decoration-underline text-secondary mb-4'>Location</h1>
+      <p className='text-secondary'><b className='text-secondary mt-2'>Name: </b><b className='text-danger'>{location?.data.name}</b></p>
+      <p className='text-secondary'><b className='text-secondary mt-2'>Dimension: </b><b className='text-danger'>{location?.data.dimension}</b></p>
+      <p className='text-secondary'><b className='text-secondary mt-2'>Type: </b><b className='text-danger'>{location?.data.type}</b></p>
       {!chars ? (
         <div className='d-flex flex-row-reverse'>
           <button onClick={showChars} className="btn menu-btn mt-4">Show characters</button>
         </div>
       ) : (<></>)}
-      {chars?.data.length !== 0 ? (
+      {chars?.length !== 0 ? (
         <div className='row mt-4'>
-        {chars?.data.map((char) => (
+        {chars?.map((char) => (
           <CharacterCard {...char} key={char.id} />
           ))}
       </div>
       ) : (
-        <h1 className='mt-5 pt-5 text-warning'>Nothing to see here</h1>
+        <div className='container'>
+          <div className='d-flex justify-content-center mt-5 pt-5 row'>
+            <img src={gif} alt="nothing to see" className='rounded col-12 col-lg-6'></img>
+          </div>
+        </div>
       )}
-      
-
     </div>
   ) : (
     <div className='container'>
