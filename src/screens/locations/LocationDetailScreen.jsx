@@ -4,6 +4,7 @@ import { getCharacter, getLocation } from 'rickmortyapi'
 import loading from "../../assets/images/giphy.gif";
 import CharacterCard from '../../components/characters-card/CharacterCard';
 import gif from "../../assets/images/nothing to see.gif"
+import { Link } from 'react-router-dom';
 
 function LocationDetailScreen() {
   let { locationNum } = useParams()
@@ -38,7 +39,7 @@ function LocationDetailScreen() {
 
   return location ? (
     <div className='text-light container mt-3'>
-      <h1 className='text-center text-decoration-underline text-secondary mb-4'>Location</h1>
+      <Link to="/locations"><button className='btn btn-info btn-sm font-face my-3'>Go back</button></Link>
       <p className='text-secondary'><b className='text-secondary mt-2'>Name: </b><b className='text-danger'>{location?.data.name}</b></p>
       <p className='text-secondary'><b className='text-secondary mt-2'>Dimension: </b><b className='text-danger'>{location?.data.dimension}</b></p>
       <p className='text-secondary'><b className='text-secondary mt-2'>Type: </b><b className='text-danger'>{location?.data.type}</b></p>

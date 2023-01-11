@@ -50,9 +50,9 @@ function CharactersDetailScreen() {
 					{char?.data?.type && <p className='text-secondary mt-2'><b>Type: </b><b className='text-danger'>{char?.data.type}</b></p>}
 					<p className='text-secondary mt-2'><b>Gender: </b><b className='text-danger'>{char?.data.gender}</b></p>
 					{char?.data.origin.name !== "Unknown" ? (
-						<Link to={`/locations/${originNum}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Origin: </b><b className='text-danger'>{char?.data.origin.name}</b></p></Link>
+						<Link to={`/locations/${originNum}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Origin: </b><b className='text-danger text-decoration-underline'>{char?.data.origin.name}</b></p></Link>
 						) : (<p className='text-secondary mt-2'><b>Origin: </b><b className='text-danger'>{char?.data.origin.name}</b></p>)}
-					<Link to={`/locations/${locationNum}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Actual location: </b><b className='text-danger'>{char?.data.location.name}</b></p></Link>
+					<Link to={`/locations/${locationNum}`} className="text-decoration-none"><p className='text-secondary mt-2'><b>Actual location: </b><b className='text-danger text-decoration-underline'>{char?.data.location.name}</b></p></Link>
 				</div>
 			</div>
     </div>

@@ -4,11 +4,11 @@ import CharacterCard from "../../components/characters-card/CharacterCard";
 import loading from "../../assets/images/giphy.gif";
 
 function CharactersScreen() {
-  let actPage = Number(localStorage.getItem("page"));
+  let actPage = Number(localStorage.getItem("charPage"));
   const [chars, setChars] = useState(null);
   const [actualPage, setPage] = useState(actPage);
   const [search, setSearch] = useState("");
-  localStorage.setItem("page", actualPage);
+  localStorage.setItem("charPage", actualPage);
 
   useEffect(() => {
     getCharacters({

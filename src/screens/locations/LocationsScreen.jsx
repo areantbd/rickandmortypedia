@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 import { getLocations } from 'rickmortyapi'
 
 function LocationsScreen() {
+    let actPage = Number(localStorage.getItem("locPage"))
     const [locations, setLocations] = useState(null)
-    const [actualPage, setPage] = useState(1)
+    const [actualPage, setPage] = useState(actPage)
+    localStorage.setItem("locPage", actualPage)
     
 
     useEffect(() => {
@@ -35,8 +37,8 @@ function LocationsScreen() {
     console.log(locations?.data.results)
   return (
     <div className='container pad-bot screen'>
-    <h3 className='text-center my-3 text-light'>Rick & Morty Characters</h3>
-    <div className='d-flex justify-content-between border px-3 py-2 text-light'>
+    <h3 className="text-center my-3 text-light font-face">Locations</h3>
+    <div className='d-flex justify-content-between border px-3 py-2 text-light font-face'>
       <h6>Total Locations: {locations?.data?.info?.count}</h6>
       <h6>Total pages: {locations?.data?.info?.pages}</h6>
     </div>
