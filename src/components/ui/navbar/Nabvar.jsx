@@ -32,7 +32,12 @@ function Nabvar() {
                   </li> */}
                 </ul>
               </div>
-            </div>
+              <div className='d-flex flex-column gap-2 mb-3 ms-3'>
+                  <a href='https://github.com/areantbd' target="_blank" rel="noreferrer" className='text-secondary fa fa-github'> Personal Github</a>
+                  <a href='https://github.com/areantbd/rickandmortypedia' target="_blank" rel="noreferrer" className='text-secondary fa fa-github'> Project Github</a>
+                  <a href='https://ivanrf.netlify.app/' target="_blank" rel="noreferrer" className='text-secondary fa fa-user'> Personal Portfolio</a>
+              </div>
+            </div>            
           </div>
         </div>        
       </nav>
