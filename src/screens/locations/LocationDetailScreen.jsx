@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 function LocationDetailScreen() {
   let { locationNum } = useParams()
+  let goBack = localStorage.getItem("back")
   const [location, setLocation] = useState(null)
   const [chars, setChars] = useState(null)
   const LOCATION_NUM = /[0-9]/
@@ -39,7 +40,7 @@ function LocationDetailScreen() {
 
   return location ? (
     <div className='text-light container mt-3'>
-      <Link to="/locations"><button className='btn btn-info btn-sm font-face my-3'>Go back</button></Link>
+      <Link to={`/${goBack}`}><button className='btn btn-info btn-sm font-face my-3'>Go back</button></Link>
       <p className='text-secondary'><b className='text-secondary mt-2'>Name: </b><b className='text-danger'>{location?.data.name}</b></p>
       <p className='text-secondary'><b className='text-secondary mt-2'>Dimension: </b><b className='text-danger'>{location?.data.dimension}</b></p>
       <p className='text-secondary'><b className='text-secondary mt-2'>Type: </b><b className='text-danger'>{location?.data.type}</b></p>

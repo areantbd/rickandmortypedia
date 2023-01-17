@@ -6,6 +6,7 @@ import loading from "../../assets/images/giphy.gif";
 
 function CharactersDetailScreen() {
     let { characterId } = useParams()
+		let goBack = localStorage.getItem("back")
 		const [char, setChar] = useState(null)
 		const LOCATION_NUM = /[0-9]/
 
@@ -14,7 +15,7 @@ function CharactersDetailScreen() {
 					.then((data) => setChar(data))
 					.catch((error) => console.error(error))
     }, [characterId])
-		console.log(char?.data)
+		console.log(goBack)
 
 		if (char?.data?.status === "unknown") {
 			char.data.status = "Unknown"
@@ -36,7 +37,7 @@ function CharactersDetailScreen() {
 
   return char ? (
     <div className='container'>
-      <Link to="/characters"><button className='btn btn-info btn-sm font-face my-3'>Go back</button></Link>
+      <Link to={`/${goBack}`}><button className='btn btn-info btn-sm font-face my-3'>Go back</button></Link>
 			<div className='d-flex flex-column justify-content-center align-items-center'>
 				<div className=''>					
 					<img src={`${char?.data.image}`} alt={char?.data.name} className="rounded"></img>
