@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom'
 import logo from "../../../assets/images/58f37720a4fa116215a9240f.png"
 
 function Nabvar() {
+
+  function setBackToChars() {
+    localStorage.setItem("back", "characters")
+  }
+  function setBackToLocs() {
+    localStorage.setItem("back", "locations")
+  }
+
   return (
     <div>
       <nav className="navbar bg-dark bg-gradient">
@@ -22,10 +30,10 @@ function Nabvar() {
               <div className="offcanvas-body">
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe-3" data-bs-dismiss="offcanvas" aria-label="Close">
                   <li className="nav-item">
-                    <Link className="nav-link font-face text-decoration-underline text-danger" aria-current="page" to="/characters">Characters</Link>
+                    <Link className="nav-link font-face text-decoration-underline text-danger" aria-current="page" to="/characters" onClick={setBackToChars}>Characters</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link font-face text-decoration-underline text-danger" aria-current="page"  to="/locations">Locations</Link>
+                    <Link className="nav-link font-face text-decoration-underline text-danger" aria-current="page"  to="/locations" onClick={setBackToLocs}>Locations</Link>
                   </li>
                   {/* <li className="nav-item">
                     <Link className="nav-link disabled" aria-current="page"  href="#">Episodes</Link>
